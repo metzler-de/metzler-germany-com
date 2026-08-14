@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metzler GmbH — Our Websites</title>
+<meta name="description" content="Metzler GmbH — premium outdoor hardware. Choose the site for your market: Germany, France, Italy, Lithuania, Switzerland, Spain, Poland, Sweden.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#01292A">
+<script>document.documentElement.className = 'js';</script>
+<style>
+:root {
+  --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  /* TEAL — primary brand */
+  --color-teal-50:  #F2F6F6;
+  --color-teal-75:  #E3F2F0;
+  --color-teal-100: #E6EEEE;
+  --color-teal:     #015253;
+  --color-teal-600: #014A4B;
+  --color-teal-700: #01292A;
+  --color-teal-900: #001D1D;
+
+  /* BRAND */
+  --color-metzler-rot:   #D42924;
+  --color-digital-black: #1A171B;
+
+  /* ACCENT */
+  --color-mint: #5CDBD3;
+
+  /* SURFACES */
+  --color-white: #FFFFFF;
+  /* Added beyond the documented palette: a true black surface was requested
+     for the footer. The palette's darkest token (--color-teal-900) still
+     carries a green cast. */
+  --color-black: #000000;
+  --color-paper: #F5F6FA;
+  --color-graphite-100: #F0F0F0;
+  --color-graphite-200: #E6E6E8;
+  --color-graphite-300: #DADADA;
+
+  /* TEXT */
+  --color-graphite-500: #A1A1A1;
+  --color-graphite-600: #6A6A6A;
+  --color-graphite-700: #54545C;
+  --color-graphite-800: #2E2E36;
+
+  /* RADIUS */
+  --radius-sm: 0.125rem;  --radius: 0.25rem;
+  --radius-lg: 0.5rem;    --radius-xl: 0.75rem;
+  --radius-pill: 624.94rem;
+
+  /* SHADOWS */
+  --shadow-card:  0 0.125rem 0.5rem rgba(0,0,0,0.08);
+  --shadow-hover: 0 0.25rem 1.25rem rgba(0,0,0,0.10);
+
+  /* GRADIENTS */
+  --gradient-brand:  linear-gradient(90deg, #01292A 0%, #011D1E 50%, #000000 100%);
+  --gradient-accent: linear-gradient(135deg, #5CDBD3 0%, #015253 100%);
+
+  /* LAYOUT */
+  --pad: 1.5rem;
+  --header-h: 4.25rem;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--color-paper);
+  color: var(--color-graphite-800);
+  font-size: 1rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, p, ul { margin: 0; }
+ul { list-style: none; padding: 0; }
+a { color: inherit; }
+
+.container {
+  width: 100%;
+  max-width: 100rem;
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+.eyebrow {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-teal);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 0.0625rem; height: 0.0625rem;
+  margin: -0.0625rem; padding: 0;
+  overflow: hidden; clip-path: inset(50%);
+  white-space: nowrap; border: 0;
+}
+
+:where(a, button):focus-visible {
+  outline: 0.1875rem solid var(--color-teal);
+  outline-offset: 0.25rem;
+  border-radius: var(--radius);
+}
+
+/* ── TOP STRIP (MARQUEE) ──────────────────────────────── */
+/* Brand gradient band, white type. */
+.topstrip {
+  position: relative;
+  overflow: hidden;
+  padding-block: 0.9375rem;
+  background-image: var(--gradient-brand);
+}
+
+/* Static masking viewport: fades the words into the edges while the band
+   itself stays solid. The mask must not sit on the moving track. */
+.topstrip__viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, var(--color-digital-black) 7%, var(--color-digital-black) 93%, transparent);
+          mask-image: linear-gradient(90deg, transparent, var(--color-digital-black) 7%, var(--color-digital-black) 93%, transparent);
+}
+
+.topstrip__track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 44s linear infinite;
+}
+.topstrip:hover .topstrip__track { animation-play-state: paused; }
+
+.topstrip__group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 3.5rem;
+  padding-right: 3.5rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-white);
+}
+
+.topstrip__group span {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+/* Grey diamond between entries — no accent colour in this band. */
+.topstrip__group span::after {
+  content: "";
+  width: 0.25rem;
+  height: 0.25rem;
+  flex-shrink: 0;
+  transform: rotate(45deg);
+  background-color: var(--color-graphite-500);
+}
+
+@keyframes marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+/* ── HEADER ───────────────────────────────────────────── */
+.site-header {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 300ms ease, box-shadow 300ms ease;
+}
+
+.site-header.is-sticky {
+  position: fixed;
+  top: 0; left: 0;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-card);
+  animation: header-drop 400ms var(--ease-out-expo) both;
+}
+
+@keyframes header-drop {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  min-height: var(--header-h);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+.logo svg {
+  height: 1.875rem;
+  width: auto;
+  display: block;
+}
+
+/* ── LANGUAGE SWITCHER ────────────────────────────────── */
+/* Pill trigger + dropdown. Switching translates this page in place; the
+   site list below is what routes visitors to the market websites. */
+.lang { position: relative; flex-shrink: 0; }
+
+.lang__toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2.25rem;
+  padding: 0 0.875rem;
+  font-family: var(--font-family);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-graphite-800);
+  background-color: var(--color-white);
+  border: 0.0625rem solid var(--color-graphite-300);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+.lang__toggle:hover { border-color: var(--color-teal); color: var(--color-teal); }
+.lang__toggle svg { width: 1rem; height: 1rem; flex-shrink: 0; }
+
+.lang__chevron {
+  width: 0.875rem;
+  height: 0.875rem;
+  color: var(--color-graphite-500);
+  transition: transform 250ms var(--ease-out-expo);
+}
+.lang__toggle[aria-expanded="true"] .lang__chevron { transform: rotate(180deg); }
+
+.lang__menu {
+  position: absolute;
+  /* Mobile: the pill wraps to its own left-aligned line, so open leftwards. */
+  left: 0;
+  right: auto;
+  top: calc(100% + 0.5rem);
+  z-index: 30;
+  min-width: 11.5rem;
+  padding: 0.375rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.0625rem;
+  background-color: var(--color-white);
+  border: 0.0625rem solid var(--color-graphite-200);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-hover);
+}
+.lang__menu[hidden] { display: none; }
+
+.lang__menu button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0.625rem;
+  font-family: var(--font-family);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: left;
+  color: var(--color-graphite-800);
+  background: none;
+  border: 0;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.lang__menu button span {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-graphite-500);
+}
+.lang__menu button:hover {
+  background-color: var(--color-teal-50);
+  color: var(--color-teal);
+}
+.lang__menu button[aria-current="true"] {
+  background-color: var(--color-teal-100);
+  color: var(--color-teal);
+  font-weight: 700;
+}
+.lang__menu button[aria-current="true"] span { color: var(--color-teal); }
+
+/* ── SPLIT: INTRO LEFT · INDEX RIGHT ──────────────────── */
+.split { padding-block: 2.5rem 3rem; }
+
+.split__inner {
+  position: relative;
+  display: grid;
+  gap: 2.75rem;
+}
+
+/* ── SCROLL CUE ───────────────────────────────────────── */
+/* Only shown where the list is its own scroll container. */
+.scrollcue { display: none; }
+
+@keyframes cue-nudge {
+  0%, 100% { transform: translate(-50%, 0); }
+  50%      { transform: translate(-50%, 0.25rem); }
+}
+
+.intro__title {
+  margin-top: 1.25rem;
+  font-size: clamp(2.25rem, 7vw, 4rem);
+  font-weight: 700;
+  line-height: 1.03;
+  letter-spacing: -0.02em;
+  color: var(--color-digital-black);
+  text-wrap: balance;
+}
+.intro__title em { font-style: normal; color: var(--color-teal); }
+
+.intro__sub {
+  margin-top: 1.375rem;
+  max-width: 30rem;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--color-graphite-700);
+}
+
+.row { border-top: 0.0625rem solid var(--color-graphite-200); }
+.row:last-child { border-bottom: 0.0625rem solid var(--color-graphite-200); }
+
+.row__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 3.5rem;
+  margin-inline: calc(var(--pad) * -1);
+  padding: 1.25rem var(--pad);
+  overflow: hidden;
+  text-decoration: none;
+  isolation: isolate;
+}
+
+.row__link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-color: var(--color-teal-50);
+  transform: translate3d(0, 101%, 0);
+  transition: transform 400ms var(--ease-out-expo);
+}
+
+.row__index {
+  position: absolute;
+  z-index: -1;
+  /* clears the 2.5rem link badge plus its gutter, so the two never stack */
+  right: calc(var(--pad) + 3.75rem);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--color-graphite-100);
+  transition: color 400ms var(--ease-out-expo);
+  pointer-events: none;
+  user-select: none;
+}
+
+.row__body {
+  position: relative;
+  display: block;
+  min-width: 0;
+  transition: transform 400ms var(--ease-out-expo);
+}
+
+.row__arrow {
+  position: absolute;
+  left: -2.5rem;
+  top: 0.375rem;
+  display: flex;
+  color: var(--color-teal);
+  opacity: 0;
+  transform: translate3d(-1rem, 0, 0);
+  transition: opacity 300ms var(--ease-out-expo), transform 500ms var(--ease-out-expo);
+}
+.row__arrow svg { width: 1.5rem; height: 1.5rem; }
+
+/* Name plus optional status pill on one baseline. */
+.row__title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+}
+
+.row__badge {
+  flex-shrink: 0;
+  padding: 0.1875rem 0.5rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-teal-100);
+  color: var(--color-teal);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background-color 400ms var(--ease-out-expo), color 400ms var(--ease-out-expo), border-color 400ms var(--ease-out-expo);
+  border: 0.0625rem solid transparent;
+}
+
+.row__name {
+  display: block;
+  font-size: clamp(1.5rem, 4.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--color-digital-black);
+  transition: color 400ms var(--ease-out-expo);
+}
+
+.row__meta {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--color-graphite-600);
+  transition: color 400ms var(--ease-out-expo);
+}
+
+/* The domain is the actionable part of the metadata line — set apart from
+   the country and the category list. */
+.row__domain {
+  font-weight: 700;
+  color: var(--color-teal);
+  transition: color 400ms var(--ease-out-expo);
+}
+
+.row__ext {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-left: auto;
+  border-radius: var(--radius-lg);
+  background-color: rgba(1, 82, 83, 0.08);
+  color: var(--color-teal);
+  transition: background-color 400ms var(--ease-out-expo), color 400ms var(--ease-out-expo), transform 400ms var(--ease-out-expo);
+}
+.row__ext svg { width: 1.125rem; height: 1.125rem; }
+
+/* ── FOOTER ───────────────────────────────────────────── */
+/* Footer is deliberately monochrome — black surface, white and grey type,
+   no accent colour. */
+.site-footer {
+  background-color: var(--color-black);
+  color: var(--color-graphite-300);
+  padding-block: 1.25rem;
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.625rem 2rem;
+  font-size: 0.8125rem;
+}
+
+.site-footer__legal,
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem 1rem;
+}
+
+.site-footer__sep { color: var(--color-graphite-600); }
+
+.site-footer__entity { color: var(--color-white); font-weight: 700; }
+
+.site-footer a {
+  color: var(--color-white);
+  text-decoration: none;
+  border-bottom: 0.0625rem solid transparent;
+  transition: border-color 200ms ease;
+}
+.site-footer a:hover { border-bottom-color: var(--color-white); }
+
+/* Imprint opens a dialog, so it is a button styled as a footer link. */
+.site-footer__linkbtn {
+  font: inherit;
+  padding: 0;
+  border: 0;
+  border-bottom: 0.0625rem solid transparent;
+  background: none;
+  color: var(--color-white);
+  cursor: pointer;
+  transition: border-color 200ms ease;
+}
+.site-footer__linkbtn:hover { border-bottom-color: var(--color-white); }
+.site-footer :where(a, button):focus-visible { outline-color: var(--color-white); }
+
+/* ── IMPRINT DIALOG ───────────────────────────────────── */
+.modal {
+  width: 100%;
+  max-width: min(34rem, calc(100% - 2rem));
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-graphite-800);
+  font-family: var(--font-family);
+}
+
+.modal::backdrop {
+  background-color: rgba(0, 29, 29, 0.6);
+  -webkit-backdrop-filter: blur(0.25rem);
+          backdrop-filter: blur(0.25rem);
+}
+
+.modal__panel {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-hover);
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  max-height: 85dvh;
+  overflow-y: auto;
+}
+
+.modal__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.modal__title {
+  margin-top: 0.375rem;
+  font-size: 1.625rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-digital-black);
+}
+
+.modal__close {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-teal-50);
+  color: var(--color-teal);
+  cursor: pointer;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+.modal__close:hover { background-color: var(--color-teal); color: var(--color-white); }
+.modal__close svg { width: 1.125rem; height: 1.125rem; }
+
+.modal__facts > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.125rem;
+  padding-block: 0.6875rem;
+  border-top: 0.0625rem solid var(--color-graphite-200);
+}
+
+.modal__facts dt {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-graphite-600);
+}
+.modal__facts dd {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+.modal__facts a { color: var(--color-teal); font-weight: 700; text-decoration: none; }
+.modal__facts a:hover { text-decoration: underline; }
+
+.modal__note {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 0.0625rem solid var(--color-graphite-200);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--color-graphite-600);
+}
+
+.modal[open] { animation: modal-in 340ms var(--ease-out-expo); }
+.modal[open]::backdrop { animation: modal-fade 340ms ease; }
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translate3d(0, 1rem, 0) scale(0.98); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes modal-fade { from { opacity: 0; } to { opacity: 1; } }
+
+@media (min-width: 30rem) {
+  .modal__facts > div { grid-template-columns: 10rem 1fr; gap: 1rem; align-items: baseline; }
+}
+
+/* ── ENTRANCE ─────────────────────────────────────────── */
+/* Copy: each line rises into view behind its own clipping mask, so the
+   text appears to be written in. */
+.mask { display: block; }
+
+.js .mask {
+  overflow: hidden;
+  /* Room for descenders and accents, taken back out of the layout. */
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+.js .mask > * {
+  display: block;
+  transform: translate3d(0, 110%, 0);
+  opacity: 0;
+}
+.js .mask.is-in > * {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  transition: transform 900ms var(--ease-out-expo), opacity 600ms ease-out;
+  transition-delay: calc(var(--i, 0) * 110ms);
+}
+
+/* List: rows slide in from the right, one after another. */
+.js .reveal--side {
+  opacity: 0;
+  transform: translate3d(2.5rem, 0, 0);
+}
+.js .reveal--side.is-in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 600ms ease-out, transform 850ms var(--ease-out-expo);
+  transition-delay: calc(320ms + var(--i, 0) * 90ms);
+}
+
+/* ── TABLET ───────────────────────────────────────────── */
+@media (min-width: 48rem) {
+  :root { --pad: 2.5rem; --header-h: 5rem; }
+
+  .site-header__inner { flex-wrap: nowrap; }
+  /* Pill sits at the right of the header — open the menu rightwards. */
+  .lang__menu { left: auto; right: 0; }
+
+  .split { padding-block: 3.5rem 4rem; }
+  .intro__sub { font-size: 1.125rem; }
+  .row__link { padding-block: 1.5rem; gap: 1.5rem; }
+
+  .row__link:hover::before,
+  .row__link:focus-visible::before { transform: translate3d(0, 0, 0); }
+
+  .row__link:hover .row__body,
+  .row__link:focus-visible .row__body { transform: translate3d(2.5rem, 0, 0); }
+
+  .row__link:hover .row__arrow,
+  .row__link:focus-visible .row__arrow { opacity: 1; transform: translate3d(0, 0, 0); }
+
+  /* Fill is a bright tint, so the type stays dark and only deepens. */
+  .row__link:hover .row__meta,
+  .row__link:focus-visible .row__meta { color: var(--color-graphite-700); }
+
+  .row__link:hover .row__badge,
+  .row__link:focus-visible .row__badge {
+    background-color: var(--color-white);
+    border-color: var(--color-white);
+    color: var(--color-teal);
+  }
+
+  .row__link:hover .row__index,
+  .row__link:focus-visible .row__index { color: var(--color-graphite-300); }
+
+  /* Lift only — a sideways nudge would clip the badge against the row edge. */
+  .row__link:hover .row__ext,
+  .row__link:focus-visible .row__ext {
+    background-color: var(--color-teal);
+    color: var(--color-white);
+    transform: translate3d(0, -0.25rem, 0);
+  }
+
+  .row__link:focus-visible { outline-offset: -0.1875rem; }
+}
+
+/* ── DESKTOP: TWO COLUMNS ─────────────────────────────── */
+@media (min-width: 62rem) {
+  .split__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 4.5rem;
+    align-items: center;
+  }
+  .intro__title { font-size: clamp(2.5rem, 3.6vw, 3.75rem); }
+  .row__name { font-size: clamp(1.5rem, 2.1vw, 2.125rem); }
+
+
+  .split__intro { position: relative; }
+}
+
+@media (min-width: 90rem) {
+  :root { --pad: 4rem; }
+  .split__inner { gap: 6rem; }
+}
+
+/* ── ONE-SCREEN LOCK ──────────────────────────────────────
+   Wide enough for two columns and tall enough to hold them:
+   the whole hub fits the viewport, rows share leftover height.
+   Below this the page falls back to natural scrolling. */
+@media (min-width: 62rem) and (min-height: 34rem) {
+  body {
+    height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topstrip, .site-header, .site-footer { flex: 0 0 auto; }
+
+  main {
+    flex: 1 1 auto;
+    display: flex;
+    min-height: 0;
+  }
+
+  .split {
+    flex: 1 1 auto;
+    display: flex;
+    min-height: 0;
+    padding-block: clamp(1rem, 3.2vh, 3.5rem);
+  }
+  .split > .container {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+  .split__inner {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .intro__title {
+    margin-top: clamp(0.5rem, 1.4vh, 1.25rem);
+    /* 9.2vh drives the size; the 6.5vw guard stops it overflowing the
+       column when it is narrow (it never binds at ≥1200rem-ish widths). */
+    font-size: clamp(1.875rem, min(9.2vh, 6.5vw), 5.75rem);
+  }
+  .intro__sub {
+    margin-top: clamp(0.75rem, 2vh, 1.375rem);
+    font-size: clamp(0.9375rem, 1.9vh, 1.125rem);
+  }
+
+  .split__index {
+    --index-pad: 2.75rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    min-height: 0;
+    /* Equal breathing bands above and below the list; the scroll cue lives
+       in the lower one instead of overlapping the rows. */
+    padding-block: var(--index-pad);
+  }
+
+
+  .scrollcue {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: absolute;
+    left: 50%;
+    bottom: 0.25rem;
+    z-index: 2;
+    transform: translate(-50%, 0);
+    padding: 0.375rem 0.875rem 0.375rem 0.6875rem;
+    border-radius: var(--radius-pill);
+    background-color: var(--color-white);
+    border: 0.0625rem solid var(--color-graphite-200);
+    box-shadow: var(--shadow-card);
+    color: var(--color-teal);
+    pointer-events: none;
+    animation: cue-nudge 2s ease-in-out infinite;
+    transition: opacity 300ms ease;
+  }
+  .scrollcue svg {
+    width: 1rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+  }
+  .scrollcue span {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--color-graphite-700);
+    white-space: nowrap;
+  }
+  /* Nothing left to scroll — retire the hint. */
+  .scrollcue.is-end { opacity: 0; }
+  /* The list is the scroll container — the page itself never scrolls here.
+     Rows keep their natural height and overflow vertically. */
+  .split__index nav {
+    /* Sized to its content, capped at the column height, and centred by the
+       parent — so short lists sit in the middle instead of hugging the top. */
+    flex: 0 1 auto;
+    max-height: 100%;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+
+    /* Edges dissolve so the row beyond the cut shows through. JS flips each
+       flag: top fades once scrolled away from the start, bottom until the end. */
+    --fade-top: 0;
+    --fade-bottom: 1;
+    --fade-size: 2.25rem;
+    /* Edge alpha drops to 0.38 rather than 0, so the row beyond the cut stays
+       faintly readable under the blur instead of vanishing. */
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, calc(1 - var(--fade-top) * 0.62)) 0,
+      var(--color-digital-black) calc(var(--fade-top) * var(--fade-size)),
+      var(--color-digital-black) calc(100% - var(--fade-bottom) * var(--fade-size)),
+      rgba(0, 0, 0, calc(1 - var(--fade-bottom) * 0.62)) 100%
+    );
+            mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, calc(1 - var(--fade-top) * 0.62)) 0,
+      var(--color-digital-black) calc(var(--fade-top) * var(--fade-size)),
+      var(--color-digital-black) calc(100% - var(--fade-bottom) * var(--fade-size)),
+      rgba(0, 0, 0, calc(1 - var(--fade-bottom) * 0.62)) 100%
+    );
+    /* No visible scrollbar — the list still scrolls by wheel, trackpad,
+       touch and keyboard. */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .split__index nav::-webkit-scrollbar { display: none; }
+
+  /* Flush to the column edges: a negative-margin bleed would force
+     horizontal overflow inside the scroller. */
+  .row__link {
+    margin-inline: 0;
+    padding-inline: 0;
+    padding-block: clamp(1rem, 4.1vh, 2.5rem);
+  }
+  .row__index { right: 3.75rem; }
+  .row__name { font-size: clamp(1.125rem, 3.2vh, 2.125rem); }
+  .row__meta {
+    margin-top: clamp(0.1875rem, 0.8vh, 0.5rem);
+    font-size: clamp(0.75rem, 1.5vh, 0.8125rem);
+  }
+  .row__index { font-size: clamp(2rem, 6.4vh, 4.5rem); }
+
+  .topstrip { padding-block: clamp(0.375rem, 1.2vh, 0.75rem); }
+  .site-footer { padding-block: clamp(0.75rem, 2vh, 1.75rem); }
+}
+
+/* ── REDUCED MOTION ───────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .topstrip__track { animation: none; }
+  .scrollcue { animation: none; }
+  .modal[open], .modal[open]::backdrop { animation: none; }
+  .site-header.is-sticky { animation: none; }
+  .js .mask { overflow: visible; padding-bottom: 0; margin-bottom: 0; }
+  .js .mask > *,
+  .js .reveal--side { opacity: 1; transform: none; }
+  .js .mask.is-in > *,
+  .js .reveal--side.is-in { transition: none; }
+  .row__link::before { transition: none; }
+  .row__body,
+  .row__arrow,
+  .row__ext { transition: opacity 200ms linear, background-color 200ms linear, color 200ms linear; }
+  .row__link:hover .row__body,
+  .row__link:focus-visible .row__body { transform: none; }
+  .row__link:hover .row__arrow,
+  .row__link:focus-visible .row__arrow { transform: none; }
+  .row__link:hover .row__ext,
+  .row__link:focus-visible .row__ext { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="topstrip" aria-hidden="true">
+  <div class="topstrip__viewport">
+  <div class="topstrip__track">
+    <div class="topstrip__group">
+      <span data-i18n="cat1">Intercoms</span><span data-i18n="cat2">Mailboxes</span><span data-i18n="cat3">Doorbells</span><span data-i18n="cat4">House Numbers</span><span data-i18n="cat1">Intercoms</span><span data-i18n="cat2">Mailboxes</span><span data-i18n="cat3">Doorbells</span><span data-i18n="cat4">House Numbers</span>
+    </div>
+    <div class="topstrip__group">
+      <span data-i18n="cat1">Intercoms</span><span data-i18n="cat2">Mailboxes</span><span data-i18n="cat3">Doorbells</span><span data-i18n="cat4">House Numbers</span><span data-i18n="cat1">Intercoms</span><span data-i18n="cat2">Mailboxes</span><span data-i18n="cat3">Doorbells</span><span data-i18n="cat4">House Numbers</span>
+    </div>
+  </div>
+  </div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <div class="container site-header__inner">
+    <a class="logo" href="#top" aria-label="Metzler GmbH — start of page">
+      <!-- Primary lockup, exported from the Metzler Figma library. Asset colours are
+           intentionally left as-authored: the logo is never recoloured. -->
+      <svg viewBox="0 0 200 34" fill="none" aria-hidden="true" focusable="false">
+        <path d="M30.0154 1.53662H2.45898V31.0463H30.0154V1.53662Z" fill="white"/>
+        <path d="M32.5353 0H1.04691C0.470703 0 0 0.476559 0 1.05993V32.9401C0 33.5234 0.470703 34 1.04691 34H32.5353C33.1115 34 33.5822 33.5234 33.5822 32.9401V1.05993C33.5822 0.476559 33.1115 0 32.5353 0ZM12.7901 6.42122L16.2595 12.5056L14.5147 15.5621L9.3045 6.42122H12.7901ZM12.8064 20.0319L8.53352 12.5343V28.3799H5.51453V6.42122H8.53352L14.5512 16.9753L22.5816 2.88811H26.0672L14.5471 23.0926L12.8023 20.036L12.8064 20.0319ZM27.9054 28.3799H24.8864V12.5384L18.8727 23.0802H15.3871L24.8823 6.42533H27.9013V28.384L27.9054 28.3799Z" fill="#D32B25"/>
+        <path d="M61.6862 28.3801L61.6254 16.7413L56.05 26.215H53.3231L47.7761 17.0536V28.3801H42.1074V6.42139H47.1594L54.7799 19.0954L62.2178 6.42139H67.2697L67.3306 28.3801H61.6903H61.6862Z" fill="#1B181C"/>
+        <path d="M90.4393 23.5816V28.3801H73.0273V6.42139H90.0376V11.2198H79.1018V14.9214H88.7391V19.5637H79.1018V23.5775H90.4433L90.4393 23.5816Z" fill="#1B181C"/>
+        <path d="M100.137 11.3472H93.4746V6.42139H112.903V11.3472H106.273V28.3801H100.137V11.3472Z" fill="#1B181C"/>
+        <path d="M134.751 23.4584V28.3842H115.322V24.4936L126.258 11.3513H115.598V6.42139H134.28V10.3119L123.344 23.4543H134.747L134.751 23.4584Z" fill="#1B181C"/>
+        <path d="M139.426 6.42139H145.561V23.4584H155.908V28.3842H139.426V6.42139Z" fill="#1B181C"/>
+        <path d="M175.865 23.5816V28.3801H158.453V6.42139H175.463V11.2198H164.528V14.9214H174.165V19.5637H164.528V23.5775H175.869L175.865 23.5816Z" fill="#1B181C"/>
+        <path d="M189.499 22.5463H186.151V28.3801H180.016V6.42139H189.929C191.893 6.42139 193.597 6.75005 195.042 7.40737C196.486 8.06469 197.602 9.00548 198.389 10.2297C199.172 11.454 199.566 12.8919 199.566 14.5434C199.566 16.1949 199.201 17.5178 198.466 18.701C197.732 19.8842 196.685 20.8085 195.322 21.4782L200 28.3801H193.431L189.495 22.5463H189.499ZM192.412 12.1647C191.771 11.6019 190.821 11.3184 189.56 11.3184H186.151V17.7479H189.56C190.817 17.7479 191.771 17.4726 192.412 16.918C193.053 16.3634 193.374 15.5746 193.374 14.5516C193.374 13.5287 193.053 12.7317 192.412 12.1688V12.1647Z" fill="#1B181C"/>
+      </svg>
+    </a>
+
+    <div class="lang">
+      <button class="lang__toggle" id="langToggle" type="button" aria-expanded="false" aria-controls="langMenu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/>
+        </svg>
+        <span class="lang__current" id="langCurrent">English</span>
+        <svg class="lang__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+
+      <ul class="lang__menu" id="langMenu" hidden>
+        <li><button type="button" data-lang="en" lang="en" aria-current="true">English<span>EN</span></button></li>
+        <li><button type="button" data-lang="de" lang="de">Deutsch<span>DE</span></button></li>
+        <li><button type="button" data-lang="fr" lang="fr">Français<span>FR</span></button></li>
+        <li><button type="button" data-lang="it" lang="it">Italiano<span>IT</span></button></li>
+        <li><button type="button" data-lang="es" lang="es">Español<span>ES</span></button></li>
+        <li><button type="button" data-lang="pl" lang="pl">Polski<span>PL</span></button></li>
+        <li><button type="button" data-lang="lt" lang="lt">Lietuvių<span>LT</span></button></li>
+        <li><button type="button" data-lang="sv" lang="sv">Svenska<span>SV</span></button></li>
+      </ul>
+    </div>
+
+  </div>
+</header>
+
+<main id="top">
+  <section class="split" aria-labelledby="intro-title">
+    <div class="container split__inner">
+
+      <div class="split__intro">
+        <span class="mask" style="--i:0"><span class="eyebrow" data-i18n="eyebrow">Metzler GmbH — Choose your market</span></span>
+        <h1 class="intro__title" id="intro-title">
+          <span class="mask" style="--i:1"><span data-i18n="titleA">Eight markets.</span></span>
+          <span class="mask" style="--i:2"><em data-i18n="titleB">One standard.</em></span>
+        </h1>
+        <div class="mask" style="--i:3">
+          <p class="intro__sub" data-i18n="sub">
+            We design intercoms, mailboxes, doorbells and house numbers in Germany — and run
+            a dedicated site for every market we serve.
+          </p>
+        </div>
+      </div>
+
+      <div class="split__index">
+        <nav aria-label="Metzler websites by market">
+          <ul>
+
+            <li class="row reveal--side" style="--i:0">
+              <a class="row__link" href="https://edelstahl-tuerklingel.de" data-region="DE" target="_blank" rel="noopener">
+                <span class="row__index" aria-hidden="true">01</span>
+                <span class="row__body">
+                  <span class="row__arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                  </span>
+                  <span class="row__title"><span class="row__name">Metzler Germany</span></span>
+                  <span class="row__meta"><span data-country></span> · <span class="row__domain">edelstahl-tuerklingel.de</span> · <span data-cats></span></span>
+                </span>
+                <span class="row__ext" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+                </span>
+                <span class="visually-hidden">(opens in a new tab)</span>
+              </a>
+            </li>
+
+            <li class="row reveal--side" style="--i:1">
+              <a class="row__link" href="https://metzler.fr" data-region="FR" target="_blank" rel="noopener">
+                <span class="row__index" aria-hidden="true">02</span>
+                <span class="row__body">
+                  <span class="row__arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                  </span>
+                  <span class="row__title"><span class="row__name">Metzler France</span></span>
+                  <span class="row__meta"><span data-country></span> · <span class="row__domain">metzler.fr</span> · <span data-cats></span></span>
+                </span>
+                <span class="row__ext" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+                </span>
+                <span class="visually-hidden">(opens in a new tab)</span>
+              </a>
+            </li>
+
+            <li class="row reveal--side" style="--i:2">
+              <a class="row__link" href="https://metzler.it" data-region="IT" target="_blank" rel="noopener">
+                <span class="row__index" aria-hidden="true">03</span>
+                <span class="row__body">
+                  <span class="row__arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                  </span>
+                  <span class="row__title"><span class="row__name">Metzler Italia</span></span>
+                  <span class="row__meta"><span data-country></span> · <span class="row__domain">metzler.it</span> · <span data-cats></span></span>
+                </span>
+                <span class="row__ext" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+                </span>
+                <span class="visually-hidden">(opens in a new tab)</span>
+              </a>
+            </li>
+
+            <li class="row reveal--side" style="--i:3">
+              <a class="row__link" href="https://metzler.lt" data-region="LT" target="_blank" rel="noopener">
+                <span class="row__index" aria-hidden="true">04</span>
+                <span class="row__body">
+                  <span class="row__arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                  </span>
+                  <span class="row__title"><span class="row__name">Metzler Lietuva</span></span>
+                  <span class="row__meta"><span data-country></span> · <span class="row__domain">metzler.lt</span> · <span data-cats></span></span>
+                </span>
+                <span class="row__ext" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+                </span>
+                <span class="visually-hidden">(opens in a new tab)</span>
+              </a>
+            </li>
+
+            <li class="row reveal--side" style="--i:4">
+              <a class="row__link" href="https://metzler.ch" data-region="CH" target="_blank" rel="noopener">
+                <span class="row__index" aria-hidden="true">05</span>
+                <span class="row__body">
+                  <span class="row__arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                  </span>
+                  <span class="row__title"><span class="row__name">Metzler Schweiz</span><span class="row__badge" data-i18n="status">In progress</span></span>
+                  <span class="row__meta"><span data-country></span> · <span class="row__domain">metzler.ch</span> · <span data-cats></span></span>
+                </span>
+                <span class="row__ext" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+                </span>
+                <span class="visually-hidden">(opens in a new tab)</span>
+              </a>
+            </li>
+
+            <li class="row reveal--side" style="--i:5">
+              <a class="row__link" href="https://metzler.es" data-region="ES" target="_blank" rel="noopener">
+                <span class="row__index" aria-hidden="true">06</span>
+                <span class="row__body">
+                  <span class="row__arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                  </span>
+                  <span class="row__title"><span class="row__name">Metzler España</span><span class="row__badge" data-i18n="status">In progress</span></span>
+                  <span class="row__meta"><span data-country></span> · <span class="row__domain">metzler.es</span> · <span data-cats></span></span>
+                </span>
+                <span class="row__ext" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+                </span>
+                <span class="visually-hidden">(opens in a new tab)</span>
+              </a>
+            </li>
+
+            <li class="row reveal--side" style="--i:6">
+              <a class="row__link" href="https://metzler.pl" data-region="PL" target="_blank" rel="noopener">
+                <span class="row__index" aria-hidden="true">07</span>
+                <span class="row__body">
+                  <span class="row__arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                  </span>
+                  <span class="row__title"><span class="row__name">Metzler Polska</span><span class="row__badge" data-i18n="status">In progress</span></span>
+                  <span class="row__meta"><span data-country></span> · <span class="row__domain">metzler.pl</span> · <span data-cats></span></span>
+                </span>
+                <span class="row__ext" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+                </span>
+                <span class="visually-hidden">(opens in a new tab)</span>
+              </a>
+            </li>
+
+            <li class="row reveal--side" style="--i:7">
+              <a class="row__link" href="https://metzler.se" data-region="SE" target="_blank" rel="noopener">
+                <span class="row__index" aria-hidden="true">08</span>
+                <span class="row__body">
+                  <span class="row__arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+                  </span>
+                  <span class="row__title"><span class="row__name">Metzler Sverige</span><span class="row__badge" data-i18n="status">In progress</span></span>
+                  <span class="row__meta"><span data-country></span> · <span class="row__domain">metzler.se</span> · <span data-cats></span></span>
+                </span>
+                <span class="row__ext" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+                </span>
+                <span class="visually-hidden">(opens in a new tab)</span>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+
+        <div class="scrollcue" id="scrollCue" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+            <rect x="6" y="2" width="12" height="20" rx="6"/>
+            <path d="M12 6.5v3.5"/>
+          </svg>
+          <span data-i18n="scroll">Scroll</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__legal">
+      <span>© 2026 <span class="site-footer__entity">Metzler GmbH</span> · Täleswiesenstr. 9, 72770 Reutlingen, <span data-home-country>Germany</span></span>
+    </div>
+    <nav class="site-footer__links" aria-label="Legal">
+      <button class="site-footer__linkbtn" type="button" id="imprintLink"
+              data-fallback="https://edelstahl-tuerklingel.de/impressum" data-i18n="imprint">Imprint</button>
+    </nav>
+  </div>
+</footer>
+
+<!-- Imprint dialog. Data mirrors edelstahl-tuerklingel.de/impressum; the
+     footer link still opens that page if JS is unavailable. -->
+<dialog class="modal" id="imprintModal" aria-labelledby="imprintModalTitle">
+  <div class="modal__panel">
+    <div class="modal__head">
+      <div>
+        <span class="eyebrow">Gesetzliche Anbieterkennung</span>
+        <h2 class="modal__title" id="imprintModalTitle" data-i18n="imprint">Imprint</h2>
+      </div>
+      <button class="modal__close" type="button" id="imprintClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <dl class="modal__facts">
+      <div>
+        <dt>Company</dt>
+        <dd><strong>Metzler GmbH</strong></dd>
+      </div>
+      <div>
+        <dt>Address</dt>
+        <dd>Täleswiesenstr. 9<br>72770 Reutlingen<br><span data-home-country>Germany</span></dd>
+      </div>
+      <div>
+        <dt>Managing Director</dt>
+        <dd>Denis Metzler</dd>
+      </div>
+      <div>
+        <dt>Phone</dt>
+        <dd><a href="tel:+4971213177310">+49 7121 317 7310</a></dd>
+      </div>
+      <div>
+        <dt>Email</dt>
+        <dd><a href="mailto:info@edelstahl-tuerklingel.de">info@edelstahl-tuerklingel.de</a></dd>
+      </div>
+      <div>
+        <dt>Register</dt>
+        <dd>Amtsgericht Stuttgart · HRB 768215</dd>
+      </div>
+      <div>
+        <dt>VAT ID</dt>
+        <dd>DE322754305</dd>
+      </div>
+      <div>
+        <dt>WEEE</dt>
+        <dd>DE 63539391</dd>
+      </div>
+    </dl>
+
+    <p class="modal__note">
+      Metzler GmbH is neither willing nor obliged to take part in dispute
+      resolution proceedings before a consumer arbitration board.
+    </p>
+  </div>
+</dialog>
+
+<script>
+/* Page copy per language. Row metadata is intentionally NOT translated —
+   each entry stays in its own market's language. */
+var I18N = {
+  en: { name: 'English',
+    eyebrow: 'Metzler GmbH — Choose your market', titleA: 'Eight markets.', titleB: 'One standard.',
+    sub: 'We design intercoms, mailboxes, doorbells and house numbers in Germany — and run a dedicated site for every market we serve.',
+    cat1: 'Intercoms', cat2: 'Mailboxes', cat3: 'Doorbells', cat4: 'House Numbers',
+    notice: 'This portal sets no cookies and runs no tracking', imprint: 'Imprint', privacy: 'Privacy', status: 'In progress', scroll: 'Scroll' },
+  de: { name: 'Deutsch',
+    eyebrow: 'Metzler GmbH — Wählen Sie Ihren Markt', titleA: 'Acht Märkte.', titleB: 'Ein Standard.',
+    sub: 'Wir entwickeln Sprechanlagen, Briefkästen, Türklingeln und Hausnummern in Deutschland — und betreiben für jeden Markt eine eigene Website.',
+    cat1: 'Sprechanlagen', cat2: 'Briefkästen', cat3: 'Türklingeln', cat4: 'Hausnummern',
+    notice: 'Dieses Portal setzt keine Cookies und nutzt kein Tracking', imprint: 'Impressum', privacy: 'Datenschutz', status: 'In Arbeit', scroll: 'Scrollen' },
+  fr: { name: 'Français',
+    eyebrow: 'Metzler GmbH — Choisissez votre marché', titleA: 'Huit marchés.', titleB: 'Un standard.',
+    sub: 'Nous concevons en Allemagne des interphones, boîtes aux lettres, sonnettes et numéros de maison — et exploitons un site dédié pour chaque marché.',
+    cat1: 'Interphones', cat2: 'Boîtes aux lettres', cat3: 'Sonnettes', cat4: 'Numéros de maison',
+    notice: 'Ce portail n’utilise ni cookies ni traceurs', imprint: 'Mentions légales', privacy: 'Confidentialité', status: 'En cours', scroll: 'Défiler' },
+  it: { name: 'Italiano',
+    eyebrow: 'Metzler GmbH — Scegli il tuo mercato', titleA: 'Otto mercati.', titleB: 'Uno standard.',
+    sub: 'Progettiamo in Germania citofoni, cassette postali, campanelli e numeri civici — e gestiamo un sito dedicato per ogni mercato.',
+    cat1: 'Citofoni', cat2: 'Cassette postali', cat3: 'Campanelli', cat4: 'Numeri civici',
+    notice: 'Questo portale non usa cookie né sistemi di tracciamento', imprint: 'Note legali', privacy: 'Privacy', status: 'In corso', scroll: 'Scorri' },
+  es: { name: 'Español',
+    eyebrow: 'Metzler GmbH — Elige tu mercado', titleA: 'Ocho mercados.', titleB: 'Un estándar.',
+    sub: 'Diseñamos en Alemania videoporteros, buzones, timbres y números de casa — y mantenemos un sitio propio para cada mercado.',
+    cat1: 'Videoporteros', cat2: 'Buzones', cat3: 'Timbres', cat4: 'Números de casa',
+    notice: 'Este portal no usa cookies ni rastreo', imprint: 'Aviso legal', privacy: 'Privacidad', status: 'En curso', scroll: 'Desliza' },
+  pl: { name: 'Polski',
+    eyebrow: 'Metzler GmbH — Wybierz swój rynek', titleA: 'Osiem rynków.', titleB: 'Jeden standard.',
+    sub: 'Projektujemy w Niemczech wideodomofony, skrzynki na listy, dzwonki i numery domów — i prowadzimy osobną stronę dla każdego rynku.',
+    cat1: 'Wideodomofony', cat2: 'Skrzynki na listy', cat3: 'Dzwonki', cat4: 'Numery domów',
+    notice: 'Ten portal nie używa plików cookie ani śledzenia', imprint: 'Impressum', privacy: 'Prywatność', status: 'W przygotowaniu', scroll: 'Przewiń' },
+  lt: { name: 'Lietuvių',
+    eyebrow: 'Metzler GmbH — Pasirinkite savo rinką', titleA: 'Aštuonios rinkos.', titleB: 'Vienas standartas.',
+    sub: 'Vokietijoje kuriame telefonspynes, pašto dėžutes, skambučius ir namų numerius — ir kiekvienai rinkai turime atskirą svetainę.',
+    cat1: 'Telefonspynės', cat2: 'Pašto dėžutės', cat3: 'Skambučiai', cat4: 'Namų numeriai',
+    notice: 'Šis portalas nenaudoja slapukų ir nesekia naudotojų', imprint: 'Rekvizitai', privacy: 'Privatumas', status: 'Rengiama', scroll: 'Slinkti' },
+  sv: { name: 'Svenska',
+    eyebrow: 'Metzler GmbH — Välj din marknad', titleA: 'Åtta marknader.', titleB: 'En standard.',
+    sub: 'Vi utvecklar porttelefoner, postlådor, ringklockor och husnummer i Tyskland — och driver en egen webbplats för varje marknad.',
+    cat1: 'Porttelefoner', cat2: 'Postlådor', cat3: 'Ringklockor', cat4: 'Husnummer',
+    notice: 'Denna portal använder inga cookies och ingen spårning', imprint: 'Impressum', privacy: 'Integritet', status: 'Pågår', scroll: 'Skrolla' }
+};
+
+(function () {
+  var header = document.getElementById('siteHeader');
+  var ticking = false;
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      header.classList.toggle('is-sticky', window.scrollY > header.offsetHeight);
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Language switcher — translates this page in place.
+  var toggle = document.getElementById('langToggle');
+  var menu = document.getElementById('langMenu');
+  var current = document.getElementById('langCurrent');
+
+  function setOpen(open) {
+    menu.hidden = !open;
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  // Country names come from the platform, so no per-language name table.
+  function regionName(code, region) {
+    try {
+      return new Intl.DisplayNames([code], { type: 'region' }).of(region);
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function localiseList(code, dict) {
+    // The band uppercases these, but mid-sentence in the metadata line only
+    // German keeps common nouns capitalised.
+    var items = [dict.cat1, dict.cat2, dict.cat3].map(function (w) {
+      if (code === 'de') return w;
+      return w.charAt(0).toLocaleLowerCase(code) + w.slice(1);
+    });
+    var cats = items.join(', ');
+    document.querySelectorAll('.row__link').forEach(function (link) {
+      var name = regionName(code, link.getAttribute('data-region'));
+      if (name) {
+        link.querySelector('.row__name').textContent = 'Metzler ' + name;
+        link.querySelector('[data-country]').textContent = name;
+      }
+      link.querySelector('[data-cats]').textContent = cats;
+    });
+  }
+
+  function translate(code) {
+    var dict = I18N[code];
+    if (!dict) return;
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var value = dict[el.getAttribute('data-i18n')];
+      if (value) el.textContent = value;
+    });
+    localiseList(code, dict);
+    var homeName = regionName(code, 'DE');
+    if (homeName) {
+      document.querySelectorAll('[data-home-country]').forEach(function (el) {
+        el.textContent = homeName;
+      });
+    }
+    document.documentElement.lang = code;
+    current.textContent = dict.name;
+    menu.querySelectorAll('[data-lang]').forEach(function (b) {
+      if (b.getAttribute('data-lang') === code) b.setAttribute('aria-current', 'true');
+      else b.removeAttribute('aria-current');
+    });
+    fitList();
+  }
+
+  toggle.addEventListener('click', function () {
+    setOpen(menu.hidden);
+  });
+  menu.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-lang]');
+    if (!btn) return;
+    translate(btn.getAttribute('data-lang'));
+    setOpen(false);
+    toggle.focus();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !menu.hidden) { setOpen(false); toggle.focus(); }
+  });
+  document.addEventListener('click', function (e) {
+    if (!menu.hidden && !e.target.closest('.lang')) setOpen(false);
+  });
+
+  // Trim the list viewport to a whole number of rows so it never shows a
+  // half-row, and so the parent can centre it with even space above/below.
+  var lock = window.matchMedia('(min-width: 62rem) and (min-height: 34rem)');
+  var list = document.querySelector('.split__index nav');
+  var cue = document.getElementById('scrollCue');
+
+  // Fade whichever edge still has content beyond it, and retire the cue at
+  // the end of the list.
+  function updateCue() {
+    if (!list) return;
+    var room = list.scrollHeight - list.clientHeight;
+    var scrollable = room > 4;
+    var atTop = list.scrollTop <= 4;
+    var atEnd = list.scrollTop >= room - 4;
+    // Set on the column, not the list: the frosted edge overlays are pseudo
+    // elements of the column and need to read the same flags.
+    var col = list.parentElement;
+    col.style.setProperty('--fade-top', !scrollable || atTop ? '0' : '1');
+    col.style.setProperty('--fade-bottom', !scrollable || atEnd ? '0' : '1');
+    if (cue) cue.classList.toggle('is-end', !scrollable || atEnd);
+  }
+
+  function fitList() { updateCue(); }
+  fitList();
+  window.addEventListener('resize', fitList, { passive: true });
+  window.addEventListener('load', fitList);
+  if (list) {
+    list.addEventListener('scroll', updateCue, { passive: true });
+    // Re-evaluate whenever the list geometry changes — first layout, webfont
+    // swap, a language with taller rows. Without this the initial pass can run
+    // before the list is scrollable and the edges never fade.
+    if ('ResizeObserver' in window) {
+      var ro = new ResizeObserver(updateCue);
+      ro.observe(list);
+      if (list.firstElementChild) ro.observe(list.firstElementChild);
+    }
+  }
+
+  // Imprint dialog — progressive enhancement: without <dialog> support the
+  // footer link just opens the imprint page as normal.
+  var imprintModal = document.getElementById('imprintModal');
+  var imprintLink = document.getElementById('imprintLink');
+  var imprintClose = document.getElementById('imprintClose');
+
+  if (imprintModal && imprintLink && typeof imprintModal.showModal === 'function') {
+    imprintLink.addEventListener('click', function () { imprintModal.showModal(); });
+    imprintClose.addEventListener('click', function () { imprintModal.close(); });
+    // Clicks on the backdrop target the dialog element itself.
+    imprintModal.addEventListener('click', function (e) {
+      if (e.target === imprintModal) imprintModal.close();
+    });
+  } else if (imprintLink) {
+    // No <dialog> support: fall back to the imprint page rather than a dead button.
+    imprintLink.addEventListener('click', function () {
+      window.open(imprintLink.getAttribute('data-fallback'), '_blank', 'noopener');
+    });
+  }
+
+  // Render the list from data for the initial language.
+  translate(document.documentElement.lang || 'en');
+
+  var items = document.querySelectorAll('.mask, .reveal--side');
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('is-in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-in');
+      io.unobserve(entry.target);
+    });
+  }, { rootMargin: '0% 0% -10% 0%', threshold: 0.1 });
+  items.forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
