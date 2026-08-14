@@ -115,11 +115,11 @@ a { color: inherit; }
 }
 
 /* ── TOP STRIP (MARQUEE) ──────────────────────────────── */
-/* Brand gradient band, white type. */
+/* Brand gradient band, white type. Compact on phones, taller from 48rem. */
 .topstrip {
   position: relative;
   overflow: hidden;
-  padding-block: 0.9375rem;
+  padding-block: 0.4375rem;
   background-image: var(--gradient-brand);
 }
 
@@ -142,11 +142,11 @@ a { color: inherit; }
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  gap: 3.5rem;
-  padding-right: 3.5rem;
-  font-size: 0.875rem;
+  gap: 2rem;
+  padding-right: 2rem;
+  font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--color-white);
@@ -155,14 +155,14 @@ a { color: inherit; }
 .topstrip__group span {
   display: flex;
   align-items: center;
-  gap: 3.5rem;
+  gap: 2rem;
 }
 
 /* Grey diamond between entries — no accent colour in this band. */
 .topstrip__group span::after {
   content: "";
-  width: 0.25rem;
-  height: 0.25rem;
+  width: 0.1875rem;
+  height: 0.1875rem;
   flex-shrink: 0;
   transform: rotate(45deg);
   background-color: var(--color-graphite-500);
@@ -670,6 +670,16 @@ a { color: inherit; }
   :root { --pad: 2.5rem; --header-h: 5rem; }
 
   .site-header__inner { flex-wrap: nowrap; }
+
+  .topstrip { padding-block: 0.9375rem; }
+  .topstrip__group {
+    gap: 3.5rem;
+    padding-right: 3.5rem;
+    font-size: 0.875rem;
+    letter-spacing: 0.2em;
+  }
+  .topstrip__group span { gap: 3.5rem; }
+  .topstrip__group span::after { width: 0.25rem; height: 0.25rem; }
 
   .split { padding-block: 3.5rem 4rem; }
   .intro__sub { font-size: 1.125rem; }
