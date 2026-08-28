@@ -370,23 +370,6 @@ a { color: inherit; }
   transition: transform 400ms var(--ease-out-expo);
 }
 
-.row__index {
-  position: absolute;
-  z-index: -1;
-  /* clears the 2.5rem link badge plus its gutter, so the two never stack */
-  right: calc(var(--pad) + 3.75rem);
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: var(--color-graphite-100);
-  transition: color 400ms var(--ease-out-expo);
-  pointer-events: none;
-  user-select: none;
-}
-
 .row__body {
   position: relative;
   display: block;
@@ -413,6 +396,19 @@ a { color: inherit; }
   flex-wrap: wrap;
   gap: 0.5rem 0.75rem;
 }
+
+/* Market flag. National colours are asset values, not palette tokens — a
+   flag in brand teal would not be a flag. */
+.row__flag {
+  display: flex;
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 0 0 0.0625rem rgba(0, 0, 0, 0.10);
+}
+.row__flag svg { width: 100%; height: 100%; display: block; }
 
 .row__badge {
   flex-shrink: 0;
@@ -705,9 +701,6 @@ a { color: inherit; }
     color: var(--color-teal);
   }
 
-  .row__link:hover .row__index,
-  .row__link:focus-visible .row__index { color: var(--color-graphite-300); }
-
   /* Lift only — a sideways nudge would clip the badge against the row edge. */
   .row__link:hover .row__ext,
   .row__link:focus-visible .row__ext {
@@ -880,13 +873,11 @@ a { color: inherit; }
     padding-inline: 0;
     padding-block: clamp(1rem, 4.1vh, 2.5rem);
   }
-  .row__index { right: 3.75rem; }
   .row__name { font-size: clamp(1.125rem, 3.2vh, 2.125rem); }
   .row__meta {
     margin-top: clamp(0.1875rem, 0.8vh, 0.5rem);
     font-size: clamp(0.75rem, 1.5vh, 0.8125rem);
   }
-  .row__index { font-size: clamp(2rem, 6.4vh, 4.5rem); }
 
   .topstrip { padding-block: clamp(0.375rem, 1.2vh, 0.75rem); }
   .site-footer { padding-block: clamp(0.75rem, 2vh, 1.75rem); }
@@ -1000,12 +991,11 @@ a { color: inherit; }
 
             <li class="row reveal--side" style="--i:0">
               <a class="row__link" href="https://edelstahl-tuerklingel.de" data-region="DE" target="_blank" rel="noopener">
-                <span class="row__index" aria-hidden="true">01</span>
                 <span class="row__body">
                   <span class="row__arrow" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
                   </span>
-                  <span class="row__title"><span class="row__name">Metzler Germany</span></span>
+                  <span class="row__title"><span class="row__flag" aria-hidden="true"><svg viewBox="0 0 24 16" role="presentation" focusable="false"><rect width="24" height="16" fill="#FFCE00"/><rect width="24" height="10.667" fill="#DD0000"/><rect width="24" height="5.333" fill="#000000"/></svg></span><span class="row__name">Metzler Germany</span></span>
                   <span class="row__meta"><span data-country></span> · <span class="row__domain">edelstahl-tuerklingel.de</span> · <span data-cats></span></span>
                 </span>
                 <span class="row__ext" aria-hidden="true">
@@ -1017,12 +1007,11 @@ a { color: inherit; }
 
             <li class="row reveal--side" style="--i:1">
               <a class="row__link" href="https://metzler.fr" data-region="FR" target="_blank" rel="noopener">
-                <span class="row__index" aria-hidden="true">02</span>
                 <span class="row__body">
                   <span class="row__arrow" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
                   </span>
-                  <span class="row__title"><span class="row__name">Metzler France</span></span>
+                  <span class="row__title"><span class="row__flag" aria-hidden="true"><svg viewBox="0 0 24 16" role="presentation" focusable="false"><rect width="24" height="16" fill="#FFFFFF"/><rect width="8" height="16" fill="#002395"/><rect x="16" width="8" height="16" fill="#ED2939"/></svg></span><span class="row__name">Metzler France</span></span>
                   <span class="row__meta"><span data-country></span> · <span class="row__domain">metzler.fr</span> · <span data-cats></span></span>
                 </span>
                 <span class="row__ext" aria-hidden="true">
@@ -1034,12 +1023,11 @@ a { color: inherit; }
 
             <li class="row reveal--side" style="--i:2">
               <a class="row__link" href="https://metzler.it" data-region="IT" target="_blank" rel="noopener">
-                <span class="row__index" aria-hidden="true">03</span>
                 <span class="row__body">
                   <span class="row__arrow" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
                   </span>
-                  <span class="row__title"><span class="row__name">Metzler Italia</span></span>
+                  <span class="row__title"><span class="row__flag" aria-hidden="true"><svg viewBox="0 0 24 16" role="presentation" focusable="false"><rect width="24" height="16" fill="#FFFFFF"/><rect width="8" height="16" fill="#009246"/><rect x="16" width="8" height="16" fill="#CE2B37"/></svg></span><span class="row__name">Metzler Italia</span></span>
                   <span class="row__meta"><span data-country></span> · <span class="row__domain">metzler.it</span> · <span data-cats></span></span>
                 </span>
                 <span class="row__ext" aria-hidden="true">
@@ -1051,12 +1039,11 @@ a { color: inherit; }
 
             <li class="row reveal--side" style="--i:3">
               <a class="row__link" href="https://metzler.lt" data-region="LT" target="_blank" rel="noopener">
-                <span class="row__index" aria-hidden="true">04</span>
                 <span class="row__body">
                   <span class="row__arrow" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
                   </span>
-                  <span class="row__title"><span class="row__name">Metzler Lietuva</span></span>
+                  <span class="row__title"><span class="row__flag" aria-hidden="true"><svg viewBox="0 0 24 16" role="presentation" focusable="false"><rect width="24" height="16" fill="#C1272D"/><rect width="24" height="10.667" fill="#006A44"/><rect width="24" height="5.333" fill="#FDB913"/></svg></span><span class="row__name">Metzler Lietuva</span></span>
                   <span class="row__meta"><span data-country></span> · <span class="row__domain">metzler.lt</span> · <span data-cats></span></span>
                 </span>
                 <span class="row__ext" aria-hidden="true">
@@ -1068,12 +1055,11 @@ a { color: inherit; }
 
             <li class="row reveal--side" style="--i:4">
               <a class="row__link" href="https://metzler.ch" data-region="CH" target="_blank" rel="noopener">
-                <span class="row__index" aria-hidden="true">05</span>
                 <span class="row__body">
                   <span class="row__arrow" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
                   </span>
-                  <span class="row__title"><span class="row__name">Metzler Schweiz</span><span class="row__badge" data-i18n="status">In progress</span></span>
+                  <span class="row__title"><span class="row__flag" aria-hidden="true"><svg viewBox="0 0 24 16" role="presentation" focusable="false"><rect width="24" height="16" fill="#FF0000"/><rect x="10.5" y="3" width="3" height="10" fill="#FFFFFF"/><rect x="8" y="6.5" width="8" height="3" fill="#FFFFFF"/></svg></span><span class="row__name">Metzler Schweiz</span><span class="row__badge" data-i18n="status">In progress</span></span>
                   <span class="row__meta"><span data-country></span> · <span class="row__domain">metzler.ch</span> · <span data-cats></span></span>
                 </span>
                 <span class="row__ext" aria-hidden="true">
